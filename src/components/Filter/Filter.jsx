@@ -1,20 +1,25 @@
+import React from 'react';
 import { SectionFilter, Label, Input } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../redux/filtersSlice';
-import { getFilter } from '../../redux/selectors';
+import { selectFilter } from '../../redux/selectors';
 
 const Filter = () => {
-  const filterValue = useSelector(getFilter);
+  const query = useSelector(selectFilter);
   const dispatch = useDispatch();
 
+const onChange = query => {
+  dispatch(setFilter(query))
+}
+
   const handleChange = event => {
-    dispatch(setFilter(event.target.value));
+    onChange(event.target.value)
   };
 
   return (
     <SectionFilter>
       <Label>Filter</Label>
-      <Input type="text" value={filterValue} onChange={handleChange} />
+      <Input type="text" value={query} onChange={handleChange} />
     </SectionFilter>
   );
 };
