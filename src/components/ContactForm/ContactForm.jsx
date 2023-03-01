@@ -29,6 +29,7 @@ const ContactForm = () => {
     dispatch(addContact(newContact));
 
     e.target.reset();
+
   };
 
   return (
