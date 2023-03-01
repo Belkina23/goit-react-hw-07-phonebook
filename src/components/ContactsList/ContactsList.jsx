@@ -19,7 +19,6 @@ const ContactsList = () => {
   };
 
   const contactsToRender = getFilteredContacts();
-  console.log(contactsToRender);
   return (
     <Container>
       <h2>My contacts</h2>
