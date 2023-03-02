@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { addContact } from '../../redux/operation';
 import { selectContacts } from 'redux/selectors';
 import { Form, Input, Button } from './ContactForm.styled';
+// import { toast } from 'react-toastify';
 
 const shortid = require('shortid');
 const inputNameId = shortid.generate();

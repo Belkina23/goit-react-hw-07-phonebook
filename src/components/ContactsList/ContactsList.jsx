@@ -13,7 +13,6 @@ useEffect(() => {
   dispatch(fetchContacts())
 }, [dispatch])
 
-
   return (
     <Container>
       <h2>My contacts</h2>
