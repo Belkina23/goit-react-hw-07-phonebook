@@ -1,20 +1,19 @@
 import { SectionFilter, Label, Input } from './Filter.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setFilter } from '../../redux/filtersSlice';
-import { selectFilter } from '../../redux/selectors';
 
 const Filter = () => {
-  const filterValue = useSelector(selectFilter);
   const dispatch = useDispatch();
 
-  const handleChange = event => {
-    dispatch(setFilter(event.target.value));
+  const handleChange = ({ target }) => {
+    const filterContact = target.value.toLowerCase();
+    dispatch(setFilter(filterContact))
   };
 
   return (
     <SectionFilter>
       <Label>Filter</Label>
-      <Input type="text" value={filterValue} onChange={handleChange} />
+      <Input type="text" onChange={handleChange} />
     </SectionFilter>
   );
 };
